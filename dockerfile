@@ -1,8 +1,20 @@
-# Use uma imagem base do Nginx
-FROM nginx:alpine
+# Use a imagem do Node.js
+FROM node:alpine
 
-# Copie o arquivo HTML para o diretório padrão do Nginx
-COPY index.html /usr/share/nginx/html
+# Define o diretório de trabalho
+WORKDIR /app
 
-# Exponha a porta 80
-EXPOSE 80
+# Copia o package.json e o package-lock.json
+COPY package*.json ./
+
+# Instala as dependências
+RUN npm install
+
+# Copia os arquivos do projeto
+COPY . .
+
+# Exponha a porta do servidor
+EXPOSE 3000
+
+# Comando para iniciar o servidor
+CMD ["npm", "start"]
