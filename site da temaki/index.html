@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metadados -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="gOKgS71yhEN2IFrpvvwSgXTjRIRyIxKjAcWjg42c">
+
+    <!-- SEO -->
+    <meta name="description" content="zyo.se #1 bio link">
+    <meta content="website" property="og:type">
+    <meta content="lynyln | zyo.se" property="og:title">
+    <meta content="Hello, 𝒀𝑶𝑼. 𖦹ˢᵒᵘˡ ᵒᶠ ᵖⁱᶜʰᵉ †‧₊˚⚰️" property="og:description">
+    <meta content="kiwija tome | zyo.se" name="author">
+    <meta content="#1e40af" name="theme-color">
+    <meta property="og:image" content="images/1748012671_1000013853.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Kiwija tome</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/snowflakes.css">
+    <link rel="stylesheet" href="css/app-CRX9RBzq.css">
+    <link rel="stylesheet" href="css/app-BHH8rdGj.css">
+
+    <!-- Pré-carregamento -->
+    <link rel="preload" as="style" href="css/app-CRX9RBzq.css">
+    <link rel="preload" as="style" href="css/app-BHH8rdGj.css">
+    <link rel="modulepreload" href="https://zyo.se/build/assets/app-DQqgz2ft.js">
+    <link rel="modulepreload" href="https://zyo.se/build/assets/audio-context-Cxfw8mDq.js">
+    <link rel="modulepreload" href="https://zyo.se/build/assets/album-Dot4g-h6.js">
+    <link rel="modulepreload" href="https://zyo.se/build/assets/click-handler-DRFiq1He.js">
+    <link rel="modulepreload" href="https://zyo.se/build/assets/neon-effect-6c95Fi0r.js">
+
+    <!-- Estilos inline -->
+    <style>
+        [x-cloak] { display: none !important; }
+        #clickHere { overflow: hidden; }
+        
+        @keyframes progressFill { 
+            from { width: 0%; } 
+            to { width: 100%; } 
+        }
+        
+        .animate-progress { 
+            animation: progressFill 5s linear forwards; 
+            background-color: #fff; 
+        }
+        
+        #closeBtn i { 
+            transition: transform 0.3s ease-in-out; 
+        }
+        
+        #closeBtn:hover i { 
+            transform: rotate(180deg); 
+        }
+    </style>
+
+    <!-- Configurações globais -->
+    <script>
+        window.albumImages = [];
+        window.albumDescriptions = [];
+        window.userVolume = 100;
+        window.neonColor = "rgba(128, 0, 128, 0.8)";
+        window.userHasAudio = true;
+    </script>
+</head>
+
+<body class="text-white bg-black">
+    <!-- Efeito de neve -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+    </div>
+
+    <!-- Controle de volume -->
+    <div class="fixed top-4 left-4 z-30 flex items-center gap-3">
+        <div id="volumeContainer" class="group relative flex items-center rounded-[5px] bg-gray-100 bg-opacity-80 backdrop-blur hover:bg-opacity-90 transition ease-in-out duration-200 shadow-md cursor-pointer px-1 hidden">
+            <i id="volumeIcon" class="bx bx-volume-full text-2xl text-gray-800"></i>
+            <div class="absolute left-full ml-2 w-0 overflow-hidden transition-all duration-300 group-hover:w-24 h-6 flex items-center rounded-[5px] bg-gray-100 bg-opacity-80 backdrop-blur hover:bg-opacity-90 transition ease-in-out duration-200 shadow-md">
+                <input id="volumeSlider" type="range" min="0" max="100" value="100" class="w-[90%] mx-auto cursor-pointer h-1 rounded bg-gray-300 appearance-none hidden md:block accent-gray-600">
+            </div>
+        </div>
+    </div>
+
+    <!-- Créditos -->
+    <div class="fixed top-4 right-4 z-30 flex items-center gap-3">
+        <div class="items-center justify-center text-xs font-medium rounded-[5px] bg-gray-100 bg-opacity-80 backdrop-blur hover:bg-opacity-90 transition ease-in-out duration-200 shadow-md flex">
+            <a href="/" class="cursor-pointer flex items-center justify-center px-3 py-2 rounded-md">
+                <span class="text-gray-800">❤️ Feito por tome</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Overlay inicial -->
+    <div id="blurOverlay" class="fixed inset-0 z-10 backdrop-blur-xl"></div>
+    <div id="clickHere" class="fixed inset-0 flex justify-center items-center z-20 cursor-pointer">
+        <h1 class="text-white text-4xl font-bold">──── ୨୧ ────</h1>
+        <audio id="userAudio" loop data-volume="100" src="media/1748013862_OneMoreHourEdit-MultifandomTameImpala.mp3"></audio>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="flex flex-col profile-content">
+        <div x-data="{ showInfo: true }" class="relative flex flex-col min-h-screen" style="background-color: #000000;">
+            <!-- Banner superior -->
+            <div class="relative h-56 w-full">
+                <img class="h-56 w-full object-cover object-center" style="background-color: #720000;" src="images/1748012671_1000013852.gif">
+            </div>
+
+            <!-- Perfil -->
+            <div class="flex -mt-20 flex-col items-center flex-1 w-full px-0 mx-auto sm:px-10" :class="showInfo ? 'max-w-2xl' : 'max-w-7xl'">
+                <div class="relative flex flex-col justify-center w-full px-2 sm:min-h-full sm:rounded-lg sm:px-6 bg-opacity-90">
+                    <!-- Avatar -->
+                    <div class="flex flex-col items-center justify-center p-2 rounded-md">
+                        <div class="relative">
+                            <div class="rounded-full flex items-center justify-center w-40 h-40">
+                                <div class="relative w-full h-full">
+                                    <img src="images/foto.jpg" loading="lazy" class="object-cover rounded-full w-full h-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nome e descrição -->
+                    <div class="relative flex flex-row justify-center items-center mt-2">
+                        <div class="flex flex-col mb-1">
+                            <div class="flex flex-row items-center justify-center">
+                                <div class="flex text-center justify-center mt-4">
+                                    <span class="inline-flex items-center text-2xl font-bold leading-tight text-center text-zinc-300">
+                                        <span class="shadow-name glow-name">Kiwija tome</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 flex flex-col items-center">
+                                <p class="text-sm whitespace-pre-wrap text-left break-words max-w-full text-white">愛</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociais -->
+                    <div class="mt-3 text-center">
+                        <ul class="flex flex-wrap justify-center">
+                            <!-- Instagram -->
+                            <div class="relative flex items-center text-center text-gray-200 p-1 text-base" x-data="{ copied: false }">
+                                <a href="https://www.instagram.com/xz.tomee?igsh=eXQzbGRpM244bmJy" target="_blank" class="flex items-center">
+                                    <img src="images/rd0Vr.png" class="w-6 h-6 transform duration-300 hover:scale-125" alt="Instagram">
+                                </a>
+                            </div>
+
+                            <!-- YouTube -->
+                            <div class="relative flex items-center text-center text-gray-200 p-1 text-base" x-data="{ copied: false }">
+                                <a href="https://youtube.com/@rafaellatome-v1x?si=H8RZ5q8eqiANPd_7" target="_blank" class="flex items-center">
+                                    <img src="images/9oP7u.png" class="w-6 h-6 transform duration-300 hover:scale-125" alt="YouTube">
+                                </a>
+                            </div>
+
+                            <!-- Spotify -->
+                            <div class="relative flex items-center text-center text-gray-200 p-1 text-base" x-data="{ copied: false }">
+                                <a href="https://open.spotify.com/user/31kbvbtrgfmy7tdfftxia57e2equ?si=0ZTTUhaQSDaP9SxIJIh7jQ" target="_blank" class="flex items-center">
+                                    <img src="images/ipN94.png" class="w-6 h-6 transform duration-300 hover:scale-125" alt="Spotify">
+                                </a>
+                            </div>
+
+                            <!-- Pinterest -->
+                            <div class="relative flex items-center text-center text-gray-200 p-1 text-base" x-data="{ copied: false }">
+                                <a href="https://pin.it/2bWRgMsGw" target="_blank" class="flex items-center">
+                                    <img src="images/nMtY2.png" class="w-6 h-6 transform duration-300 hover:scale-125" alt="Pinterest">
+                                </a>
+                            </div>
+
+                            <!-- TikTok -->
+                            <div class="relative flex items-center text-center text-gray-200 text-base" x-data="{ copied: false }">
+                                <div class="flex items-center justify-center px-2 py-1 rounded-full cursor-pointer duration-500 hover:bg-white hover:bg-opacity-5 space-x-2" @click="navigator.clipboard.writeText('tiktok.com/@zombiekawaiilyn').then(() => { copied = true; setTimeout(() => copied = false, 2000); })">
+                                    <img src="images/Hvtmt.png" class="w-6 h-6 transform duration-300 hover:scale-125" alt="TikTok">
+                                    <span class="text-xs">https://www.tiktok.com/@tome.ycf?_t=ZM-8yO4ac3k9vK&_r=1</span>
+                                </div>
+                                <div x-show="copied" class="absolute top-full mt-2 px-2 py-1 bg-blue-500 text-white text-xs rounded-[3px] z-50" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+                                    Copiado!
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <!-- Contador de visualizações -->
+                    <div class="flex ml-2">
+                        <div class="flex text-sm font-medium rounded-full">
+                            <div class="flex items-center px-3 py-2 rounded-full" style="color: #540000;">
+                                <i class="bx bx-show text-xl mr-1"></i> <strong id="like-count">1190</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de imagens -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden" onclick="closeModal(event)">
+        <div class="relative w-11/12 max-w-3xl flex flex-col items-center justify-center">
+            <button id="closeBtn" class="absolute top-4 right-4 text-white hover:text-gray-300 transition-all duration-300 text-3xl z-50">
+                <i class="bx bx-x"></i>
+            </button>
+            <div class="relative flex items-center justify-center w-full h-[70vh] md:h-[80vh] bg-black">
+                <img id="modalImage" class="max-w-full max-h-full object-contain">
+                <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl transition-all duration-300 z-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="bx bx-chevron-left"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl transition-all duration-300 z-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="bx bx-chevron-right"></i>
+                </button>
+                <div id="imageDescription" class="absolute bottom-[100px] w-full text-center text-white py-3 px-2 text-sm hidden"></div>
+                <div id="progressContainer" class="absolute bottom-2 w-full flex gap-1 justify-center px-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app-DQqgz2ft.js"></script>
+    <script type="module" src="js/audio-context-Cxfw8mDq.js"></script>
+    <script type="module" src="js/album-Dot4g-h6.js"></script>
+    <script type="module" src="js/click-handler-DRFiq1He.js"></script>
+    <script type="module" src="js/neon-effect-6c95Fi0r.js"></script>
+
+    <!-- Tracking de visualizações -->
+    <script type="module">
+        const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+            .then(FingerprintJS => FingerprintJS.load());
+        
+        fpPromise
+            .then(fp => fp.get())
+            .then(result => {
+                const visitorId = result.visitorId;
+        
+                fetch('/track-view', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                    body: JSON.stringify({
+                        slug: 'lynyln',
+                        fp_hash: visitorId,
+                    }),
+                });
+            });
+    </script>
+</body>
+</html>

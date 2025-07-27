@@ -1,0 +1,1 @@
+const e=new(window.AudioContext||window.webkitAudioContext);let t=null,a=null,n=null;function i(o){if(o&&(!t||t.mediaElement!==o)){try{t=e.createMediaElementSource(o)}catch{console.warn("MediaElement já conectado ao AudioContext");return}a=e.createGain(),n=e.createAnalyser(),n.fftSize=256,t.connect(a),a.connect(n),n.connect(e.destination)}}export{e as a,n as b,a as g,i as s};
